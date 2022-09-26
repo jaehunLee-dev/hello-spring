@@ -7,24 +7,25 @@ import skku.hellospring.repository.*;
 import skku.hellospring.service.MemberService;
 
 import javax.persistence.EntityManager;
-import javax.sql.DataSource;
 
 @Configuration
 public class SpringConfig {
 
+    private final MemberRepository memberRepository;
     @Autowired
-    public SpringConfig(EntityManager em) {
-        this.em = em;
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
 
-    private EntityManager em;
     @Bean
     public MemberService memberService(){
-        return new MemberService(memberRepository());
+        return new MemberService(memberRepository);
     }
-
+    /*
     @Bean
     public MemberRepository memberRepository(){
-        return new JpaMemberRepository(em);
+
     }
+    */
+
 }
