@@ -3,6 +3,7 @@ package skku.hellospring;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import skku.hellospring.aop.TimeTraceAop;
 import skku.hellospring.repository.*;
 import skku.hellospring.service.MemberService;
 
@@ -21,6 +22,7 @@ public class SpringConfig {
     public MemberService memberService(){
         return new MemberService(memberRepository);
     }
+
     /*
     @Bean
     public MemberRepository memberRepository(){
